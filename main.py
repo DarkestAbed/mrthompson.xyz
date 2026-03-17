@@ -256,7 +256,7 @@ def blog_index_es(req):
     cards = [post_card(p, "es") for p in posts]
     content = (
         Div(
-            H1("Transmisiones del Taller"),
+            H1("Transmisiones Tallerescas"),
             P("Despachos desde el taller etéreo.", cls="page-subtitle"),
             cls="page-header",
         ),
