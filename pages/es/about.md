@@ -1,5 +1,5 @@
 ---
-title: Sobre el Operador
+title: Sobre Yo, El Operador
 ---
 
 ## El Hombre Detrás de la Maquinaria
@@ -11,14 +11,14 @@ He pasado la mayor parte de dos décadas en la intersección de la computación 
 ## Disciplinas
 
 - **Ingeniería de Software** — sistemas distribuidos, arquitectura backend, Python
-- **Diseño Mecánico** — instrumentos de precisión, autómatas, computación analógica
-- **Teoría Etérea** — el estudio de la información como fenómeno físico
+- **Sobrepensamiento Filosófico** — postulados antiguos en moldes menos viejos
+- **Teoría Humana y Cosas De Ella** — anatomía, relacionomía, oligarquías... Cosas que son humanas, o que podrían serlo
 
 ## El Taller
 
-El taller se encuentra en algún lugar entre lo digital y lo tangible. Funciona con curiosidad, té fuerte y una apreciación poco saludable por la estética victoriana aplicada a problemas modernos.
+El taller se encuentra en algún lugar entre lo digital y lo tangible. Funciona con curiosidad, cantidades obscenas de café fuerte y una apreciación poco saludable por la aplicación de soluciones sobrecomplejizadas a problemas simples y modernos.
 
-Si desea ponerse en contacto, el sistema de correo neumático siempre está abierto.
+Si deseas ponerte en contacto, el sistema de correo neumático siempre está abierto.
 
 ---
 
