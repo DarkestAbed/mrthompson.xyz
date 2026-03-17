@@ -3,7 +3,7 @@
    Built on PicoCSS semantic foundation
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Special+Elite&family=Share+Tech+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Jost:wght@300;400;500&family=Share+Tech+Mono&display=swap');
 
 /* ── CSS Custom Properties ── */
 :root,
@@ -82,7 +82,7 @@
 html { scroll-behavior: smooth; }
 
 body {
-  font-family: 'Special Elite', serif;
+  font-family: 'Jost', sans-serif;
   background-color: var(--bg);
   color: var(--text);
   min-height: 100vh;
