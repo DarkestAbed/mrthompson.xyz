@@ -1,0 +1,4 @@
+python-fasthtml>=0.12
+python-frontmatter>=1.1
+mistune>=3.0
+uvicorn>=0.29

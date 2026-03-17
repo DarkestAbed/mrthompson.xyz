@@ -1,0 +1,533 @@
+/* ============================================================
+   STEAMPUNK THEME — Dark by default, parchment light mode
+   Built on PicoCSS semantic foundation
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Special+Elite&family=Share+Tech+Mono&display=swap');
+
+/* ── CSS Custom Properties ── */
+:root,
+[data-theme="dark"] {
+  --bg:            #080604;
+  --bg-surface:    #110e09;
+  --bg-elevated:   #1a1208;
+  --border:        #2a1f10;
+  --border-bright: #4a3520;
+  --copper:        #b87333;
+  --gold:          #c9a84c;
+  --gold-dim:      #8a6f2e;
+  --text:          #d4b896;
+  --text-muted:    #7a6048;
+  --text-heading:  #e8c87a;
+  --code-bg:       #0d0b07;
+  --rivet:         #5a3e1b;
+
+  /* Override PicoCSS tokens */
+  --pico-background-color:       var(--bg);
+  --pico-card-background-color:  var(--bg-surface);
+  --pico-card-border-color:      var(--border);
+  --pico-color:                  var(--text);
+  --pico-h1-color:               var(--text-heading);
+  --pico-h2-color:               var(--text-heading);
+  --pico-h3-color:               var(--gold);
+  --pico-primary:                var(--copper);
+  --pico-primary-hover:          var(--gold);
+  --pico-secondary-color:        var(--text-muted);
+  --pico-border-color:           var(--border);
+  --pico-muted-color:            var(--text-muted);
+  --pico-muted-border-color:     var(--border);
+  --pico-code-background-color:  var(--code-bg);
+  --pico-code-color:             var(--copper);
+  --pico-ins-color:              var(--gold);
+  --pico-del-color:              #8b3a3a;
+  --pico-form-element-background-color: var(--bg-elevated);
+  --pico-form-element-border-color:     var(--border-bright);
+}
+
+[data-theme="light"] {
+  --bg:            #f5e6c8;
+  --bg-surface:    #ede0c0;
+  --bg-elevated:   #e5d5a8;
+  --border:        #c8a87a;
+  --border-bright: #a07840;
+  --copper:        #8b4e1a;
+  --gold:          #6b4a10;
+  --gold-dim:      #9a7030;
+  --text:          #1a0f05;
+  --text-muted:    #6b4a2a;
+  --text-heading:  #3a1f05;
+  --code-bg:       #dfd0a8;
+  --rivet:         #8a6030;
+
+  --pico-background-color:       var(--bg);
+  --pico-card-background-color:  var(--bg-surface);
+  --pico-card-border-color:      var(--border);
+  --pico-color:                  var(--text);
+  --pico-h1-color:               var(--text-heading);
+  --pico-h2-color:               var(--text-heading);
+  --pico-h3-color:               var(--gold);
+  --pico-primary:                var(--copper);
+  --pico-primary-hover:          var(--gold);
+  --pico-secondary-color:        var(--text-muted);
+  --pico-border-color:           var(--border);
+  --pico-muted-color:            var(--text-muted);
+  --pico-muted-border-color:     var(--border);
+  --pico-code-background-color:  var(--code-bg);
+  --pico-code-color:             var(--copper);
+  --pico-form-element-background-color: var(--bg-elevated);
+  --pico-form-element-border-color:     var(--border-bright);
+}
+
+/* ── Global Base ── */
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Special Elite', serif;
+  background-color: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/* Subtle gear-texture overlay via radial gradients */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(ellipse at 15% 20%, rgba(184,115,51,0.04) 0%, transparent 50%),
+    radial-gradient(ellipse at 85% 80%, rgba(201,168,76,0.03) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.container { position: relative; z-index: 1; }
+
+/* ── Typography ── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+  color: var(--text-heading);
+  letter-spacing: 0.02em;
+}
+
+h1 { font-size: 2.4rem; font-weight: 700; }
+h2 { font-size: 1.7rem; font-weight: 600; }
+h3 { font-size: 1.3rem; color: var(--gold); }
+
+a {
+  color: var(--copper);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+a:hover { color: var(--gold); text-decoration: underline; }
+
+code, pre, kbd {
+  font-family: 'Share Tech Mono', monospace;
+}
+
+pre {
+  background: var(--code-bg) !important;
+  border: 1px solid var(--border-bright);
+  border-left: 3px solid var(--copper);
+  border-radius: 0;
+  padding: 1.25rem;
+  overflow-x: auto;
+}
+
+code {
+  background: var(--code-bg);
+  color: var(--copper);
+  padding: 0.1em 0.35em;
+  border-radius: 2px;
+  font-size: 0.88em;
+}
+
+pre code {
+  background: transparent;
+  padding: 0;
+  color: var(--text);
+  font-size: 0.875rem;
+}
+
+/* ── Navigation ── */
+nav.site-nav {
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-surface);
+  padding: 0.75rem 0;
+  margin-bottom: 0;
+  position: relative;
+}
+
+/* Copper pipe line under nav */
+nav.site-nav::after {
+  content: '';
+  display: block;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--copper), var(--gold), var(--copper), transparent);
+  position: absolute;
+  bottom: -2px;
+  left: 0; right: 0;
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.nav-brand {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--gold) !important;
+  letter-spacing: 0.05em;
+  text-decoration: none !important;
+}
+
+.nav-brand:hover { color: var(--copper) !important; }
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  color: var(--text);
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.nav-links a:hover { color: var(--gold); text-decoration: none; }
+
+.nav-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* Theme toggle button */
+.btn-theme {
+  background: transparent;
+  border: 1px solid var(--border-bright);
+  color: var(--text-muted);
+  padding: 0.3rem 0.65rem;
+  font-size: 0.8rem;
+  font-family: 'Share Tech Mono', monospace;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: border-color 0.2s, color 0.2s;
+  line-height: 1;
+}
+
+.btn-theme:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.lang-link {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.8rem;
+  color: var(--text-muted) !important;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border: 1px solid var(--border);
+  padding: 0.3rem 0.6rem;
+  border-radius: 2px;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.lang-link:hover {
+  color: var(--copper) !important;
+  border-color: var(--copper);
+  text-decoration: none !important;
+}
+
+/* ── Pipe Divider ── */
+.pipe-divider {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 2rem 0;
+  color: var(--text-muted);
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+}
+
+.pipe-divider::before,
+.pipe-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border-bright));
+}
+
+.pipe-divider::after {
+  background: linear-gradient(90deg, var(--border-bright), transparent);
+}
+
+/* ── Rivet corners decoration ── */
+.riveted {
+  position: relative;
+}
+
+.riveted::before,
+.riveted::after {
+  content: '◉';
+  position: absolute;
+  color: var(--rivet);
+  font-size: 0.6rem;
+  line-height: 1;
+}
+
+.riveted::before { top: 0.4rem; left: 0.4rem; }
+.riveted::after  { top: 0.4rem; right: 0.4rem; }
+
+/* ── Post Cards (Blog Index) ── */
+.post-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.post-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--copper);
+  padding: 1.5rem 1.75rem;
+  transition: border-color 0.2s ease, background 0.2s ease;
+  position: relative;
+}
+
+.post-card::before,
+.post-card::after {
+  content: '◉';
+  position: absolute;
+  color: var(--rivet);
+  font-size: 0.55rem;
+  line-height: 1;
+}
+.post-card::before { top: 0.5rem; left: 0.5rem; }
+.post-card::after  { top: 0.5rem; right: 0.5rem; }
+
+.post-card:hover {
+  border-left-color: var(--gold);
+  background: var(--bg-elevated);
+}
+
+.post-card h2 {
+  font-size: 1.4rem;
+  margin: 0 0 0.35rem;
+}
+
+.post-card h2 a {
+  color: var(--text-heading);
+}
+
+.post-card h2 a:hover {
+  color: var(--gold);
+  text-decoration: none;
+}
+
+.post-meta {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 0.75rem;
+}
+
+.post-description {
+  color: var(--text);
+  font-size: 0.95rem;
+  line-height: 1.65;
+  margin-bottom: 1rem;
+}
+
+.post-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.75rem;
+}
+
+.tag {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  padding: 0.15rem 0.5rem;
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+}
+
+.read-more {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.8rem;
+  color: var(--copper);
+  letter-spacing: 0.05em;
+}
+
+.read-more:hover {
+  color: var(--gold);
+  text-decoration: none;
+}
+
+/* ── Individual Post ── */
+.post-header {
+  margin: 2.5rem 0 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+}
+
+/* Decorative bracket corners on post header */
+.post-header::before {
+  content: '⟦';
+  position: absolute;
+  top: 0; left: -0.5rem;
+  color: var(--copper);
+  font-size: 2rem;
+  opacity: 0.4;
+}
+
+.post-header h1 {
+  margin: 0 0 0.5rem;
+  line-height: 1.2;
+}
+
+.post-body {
+  max-width: 72ch;
+  line-height: 1.8;
+  font-size: 1.05rem;
+}
+
+.post-body h2 {
+  margin-top: 2rem;
+  padding-left: 0.75rem;
+  border-left: 2px solid var(--copper);
+}
+
+.post-body h3 {
+  margin-top: 1.5rem;
+}
+
+.post-body ul, .post-body ol {
+  padding-left: 1.5rem;
+}
+
+.post-body li { margin-bottom: 0.25rem; }
+
+.post-body blockquote {
+  border-left: 3px solid var(--gold);
+  padding-left: 1rem;
+  color: var(--text-muted);
+  font-style: italic;
+  margin: 1.5rem 0;
+}
+
+.post-footer {
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+.back-link {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+}
+
+.back-link:hover { color: var(--copper); text-decoration: none; }
+
+/* ── Page Header (Blog index title) ── */
+.page-header {
+  margin: 2.5rem 0 0;
+  padding-bottom: 1rem;
+}
+
+.page-header h1 {
+  font-size: 2rem;
+  margin-bottom: 0.25rem;
+}
+
+.page-subtitle {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ── About Page ── */
+.about-body {
+  max-width: 72ch;
+  line-height: 1.8;
+  font-size: 1.05rem;
+  margin-top: 2rem;
+}
+
+.about-body h2 {
+  margin-top: 2rem;
+  padding-left: 0.75rem;
+  border-left: 2px solid var(--gold);
+}
+
+.about-body ul {
+  padding-left: 1.5rem;
+}
+
+.about-body hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
+/* ── Footer ── */
+footer.site-footer {
+  margin-top: 4rem;
+  padding: 2rem 0;
+  border-top: 1px solid var(--border);
+  text-align: center;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  letter-spacing: 0.06em;
+  position: relative;
+}
+
+footer.site-footer::before {
+  content: '';
+  display: block;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--border-bright), transparent);
+  position: absolute;
+  top: -2px;
+  left: 0; right: 0;
+}
+
+/* ── 404 Page ── */
+.not-found {
+  text-align: center;
+  padding: 5rem 0;
+}
+
+.not-found h1 {
+  font-size: 4rem;
+  color: var(--copper);
+  opacity: 0.6;
+}
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  h1 { font-size: 1.8rem; }
+  .nav-inner { gap: 0.75rem; }
+  .post-card { padding: 1.25rem; }
+}
