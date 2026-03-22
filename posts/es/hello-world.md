@@ -1,7 +1,7 @@
 ---
 title: Hola desde el Taller
 date: 2026-03-01
-author: Mr. Thompson
+author: mrthompson
 published: true
 slug: hello-world
 description: La primera transmisión desde el taller. Los engranajes giran, las calderas están encendidas y la aeterned finalmente está viva.
