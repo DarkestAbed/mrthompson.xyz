@@ -4,7 +4,7 @@ title: Sobre Yo, El Operador
 
 ## El Hombre Detrás de la Maquinaria
 
-Saludos, viajero de la aeterned. Soy **Mr. Thompson**, ingeniero, artesano y cronista de la era mecánica.
+Saludos, viajero de la aeterned. Soy **mrthompson**, ingeniero, artesano y cronista de la era mecánica.
 
 He pasado la mayor parte de dos décadas en la intersección de la computación y la artesanía — extrayendo lógica tanto del silicio como del vapor. Mi taller es un lugar donde el código se encuentra con el cobre, donde los algoritmos son tan bienvenidos como los calibradores.
 

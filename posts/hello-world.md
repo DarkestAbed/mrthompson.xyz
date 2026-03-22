@@ -1,7 +1,7 @@
 ---
 title: Hello from the Workshop
 date: 2026-03-01
-author: Mr. Thompson
+author: mrthompson
 published: true
 slug: hello-world
 description: The first transmission from the workshop. Gears are turning, boilers are lit, and the aethernet is finally alive.
