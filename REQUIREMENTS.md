@@ -125,7 +125,7 @@ Edit `pages/about.md` (English) or `pages/es/about.md` (Spanish) directly. No fr
 All visual customisation lives in `static/custom.css`. The file is structured in sections:
 
 - **CSS Custom Properties** — all colors and tokens for dark and light mode at the top; change palette here
-- **Typography** — Google Fonts (`Playfair Display`, `Special Elite`, `Share Tech Mono`)
+- **Typography** — Google Fonts (`Playfair Display`, `Jost`, `Share Tech Mono`)
 - **Navigation** — `.site-nav`, `.nav-brand`, `.nav-links`, `.nav-controls`
 - **Post Cards** — `.post-card`, `.post-meta`, `.post-tags`
 - **Individual Post** — `.post-header`, `.post-body`, `.post-footer`
