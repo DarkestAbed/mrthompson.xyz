@@ -67,6 +67,10 @@ No es sólo una cuestión de Voluntad y Poder: también es un asunto de Cuestion
 
 Pero, por otro lado, también está la cuestión ideológica y partidista, incluso: si no estoy dispuesto/a/e a vulnerarme, puedo ser yo quien se involucre en una relación? Yo, en oposición a una máscara, a un avatar de mi, que muestre lo que quiero que se vea y oculte lo que quiero que no se vea. La posición de las conexiones reales, reconocibles, inmediatas incluso, me parece que es convenientemente conservadora, porque sólo permite y sólo incentiva la existencia de lo culturalmente apropiado. Y así, también me parece que desaparece la Voluntad, porque ya no tengo Poder sobre mí mismo para mover mi Agencia - sólo existe en mi poder y control lo que es aceptable, y las sombras deben desaparecer. Así nadie puede ser como realmente es.
 
+## Relaciones modernas
 
+Después de mucho tiempo escribiendo y editando esta... Esta... Esta _diatriba_, diría, creo que mi última hipótesis es que las así llamadas "relaciones modernas" tienen, para mí, una componente intensa de fantasía - así como la política doméstica tiene la fantasía de que las élites se preocupan de la gente pobre, el amor reciclado de la época del romanticismo televisivo tiene la fantasía de crecer y florecer sin sol ni agua.
+
+Me cuesta, hoy, verlo como algo distinto a una fantasía. Quizás el mundo me demuestre lo contrario, y el romanticismo versión siglo 21 aprenda de los errores del pasado y nos permita relacionarnos de una mejor forma. En el intertanto, sigo creyéndole a Marx: la historia primero será comedia, y luego una farsa, una parodia de sí misma.
 
 *— Mr. Thompson*
