@@ -19,7 +19,7 @@ def slugify(text: str) -> str:
 
 # ── Post loader ──────────────────────────────────────────────────────────────
 def load_posts(lang: str = "en") -> list[dict]:
-    base = Path("posts/es") if lang == "es" else Path("posts")
+    base = Path("posts") / lang
     if not base.exists():
         return []
     posts = []
@@ -97,21 +97,24 @@ app = FastHTML(
 
 
 # ── Components ───────────────────────────────────────────────────────────────
+def _toggle_lang(path: str, current_lang: str) -> str:
+    other_lang = "es" if current_lang == "en" else "en"
+    if path == "/":
+        return "/posts/en/"
+    parts = path.split("/")  # e.g. ["", "posts", "es", "slug"]
+    if len(parts) >= 3 and parts[2] == current_lang:
+        parts[2] = other_lang
+        return "/".join(parts)
+    return "/posts/en/" if other_lang == "en" else "/"
+
+
 def nav_bar(lang: str, current_path: str):
     s = UI_STRINGS[lang]
     nav_links = [
         Li(A(label, href=href)) for label, href in NAV_LINKS[lang]
     ]
 
-    # Language toggle: mirror current path in the other language
-    if lang == "en":
-        other_href = "/es" + (current_path if current_path != "/" else "/")
-    else:
-        # strip /es prefix
-        stripped = current_path[3:] if current_path.startswith("/es") else current_path
-        other_href = stripped or "/"
-
-    lang_link = A(s["switch_lang"], href=other_href, cls="lang-link")
+    lang_link = A(s["switch_lang"], href=_toggle_lang(current_path, lang), cls="lang-link")
 
     theme_btn = Button(
         s["toggle_theme"],
@@ -128,7 +131,7 @@ def nav_bar(lang: str, current_path: str):
 
     return Nav(
         Div(
-            A(SITE_NAME, href="/" if lang == "en" else "/es/", cls="nav-brand"),
+            A(SITE_NAME, href="/", cls="nav-brand"),
             Ul(*nav_links, cls="nav-links"),
             Div(lang_link, theme_btn, cls="nav-controls"),
             cls="nav-inner container",
@@ -159,8 +162,7 @@ def pipe_divider(label: str = "◈"):
 
 def post_card(post: dict, lang: str):
     s = UI_STRINGS[lang]
-    prefix = "/es" if lang == "es" else ""
-    href = f"{prefix}/post/{post['slug']}"
+    href = f"/posts/{lang}/{post['slug']}"
     tags = [Span(t, cls="tag") for t in post.get("tags", [])]
     return Article(
         H2(A(post["title"], href=href)),
@@ -179,7 +181,7 @@ def post_card(post: dict, lang: str):
 
 def post_page_content(post: dict, lang: str):
     s = UI_STRINGS[lang]
-    prefix = "/es" if lang == "es" else ""
+    back_href = "/" if lang == "es" else "/posts/en/"
     tags = [Span(t, cls="tag") for t in post.get("tags", [])]
     return (
         Header(
@@ -195,7 +197,7 @@ def post_page_content(post: dict, lang: str):
         ),
         Div(NotStr(post["content_html"]), cls="post-body"),
         Div(
-            A(s["back_to_blog"], href=f"{prefix}/", cls="back-link"),
+            A(s["back_to_blog"], href=back_href, cls="back-link"),
             cls="post-footer",
         ),
     )
@@ -203,54 +205,19 @@ def post_page_content(post: dict, lang: str):
 
 def not_found_page(lang: str):
     s = UI_STRINGS[lang]
-    prefix = "/es" if lang == "es" else ""
+    back_href = "/" if lang == "es" else "/posts/en/"
     return Div(
         H1("404"),
         P(s["not_found"]),
         P(s["not_found_detail"], cls="post-meta"),
-        A(s["back_to_blog"], href=f"{prefix}/", cls="back-link"),
+        A(s["back_to_blog"], href=back_href, cls="back-link"),
         cls="not-found",
     )
 
 
-# ── Routes — English ─────────────────────────────────────────────────────────
+# ── Routes — Spanish (default) ───────────────────────────────────────────────
 @app.get("/")
-def blog_index(req):
-    posts = get_all_posts("en")
-    cards = [post_card(p, "en") for p in posts]
-    content = (
-        Div(
-            H1("The Workshop Transmissions"),
-            P("Dispatches from the aetheric workshop.", cls="page-subtitle"),
-            cls="page-header",
-        ),
-        pipe_divider(),
-        Div(*cards, cls="post-list") if cards else P("No transmissions yet.", cls="post-meta"),
-    )
-    return page_shell("Blog", "en", "/", *content)
-
-
-@app.get("/post/{slug}")
-def blog_post(req, slug: str):
-    post = get_post(slug, "en")
-    if not post:
-        return page_shell("Not Found", "en", f"/post/{slug}", not_found_page("en"))
-    return page_shell(post["title"], "en", f"/post/{slug}", *post_page_content(post, "en"))
-
-
-@app.get("/about")
-def about_en(req):
-    html = load_page("pages/about.md")
-    return page_shell(
-        "About",
-        "en",
-        "/about",
-        Div(NotStr(html), cls="about-body"),
-    )
-
-
-# ── Routes — Spanish ─────────────────────────────────────────────────────────
-@app.get("/es/")
+@app.get("/posts/es/")
 def blog_index_es(req):
     posts = get_all_posts("es")
     cards = [post_card(p, "es") for p in posts]
@@ -263,25 +230,60 @@ def blog_index_es(req):
         pipe_divider(),
         Div(*cards, cls="post-list") if cards else P("Sin transmisiones aún.", cls="post-meta"),
     )
-    return page_shell("Blog", "es", "/es/", *content)
+    return page_shell("Blog", "es", "/", *content)
 
 
-@app.get("/es/post/{slug}")
+@app.get("/posts/es/{slug}")
 def blog_post_es(req, slug: str):
     post = get_post(slug, "es")
     if not post:
-        return page_shell("No encontrado", "es", f"/es/post/{slug}", not_found_page("es"))
-    return page_shell(post["title"], "es", f"/es/post/{slug}", *post_page_content(post, "es"))
+        return page_shell("No encontrado", "es", f"/posts/es/{slug}", not_found_page("es"))
+    return page_shell(post["title"], "es", f"/posts/es/{slug}", *post_page_content(post, "es"))
 
 
-@app.get("/es/about")
+@app.get("/pages/es/about")
 def about_es(req):
-    path = Path("pages/es/about.md")
-    html = load_page(str(path) if path.exists() else "pages/about.md")
+    html = load_page("pages/es/about.md")
     return page_shell(
         "Sobre mí",
         "es",
-        "/es/about",
+        "/pages/es/about",
+        Div(NotStr(html), cls="about-body"),
+    )
+
+
+# ── Routes — English ─────────────────────────────────────────────────────────
+@app.get("/posts/en/")
+def blog_index_en(req):
+    posts = get_all_posts("en")
+    cards = [post_card(p, "en") for p in posts]
+    content = (
+        Div(
+            H1("The Workshop Transmissions"),
+            P("Dispatches from the aetheric workshop.", cls="page-subtitle"),
+            cls="page-header",
+        ),
+        pipe_divider(),
+        Div(*cards, cls="post-list") if cards else P("No transmissions yet.", cls="post-meta"),
+    )
+    return page_shell("Blog", "en", "/posts/en/", *content)
+
+
+@app.get("/posts/en/{slug}")
+def blog_post_en(req, slug: str):
+    post = get_post(slug, "en")
+    if not post:
+        return page_shell("Not Found", "en", f"/posts/en/{slug}", not_found_page("en"))
+    return page_shell(post["title"], "en", f"/posts/en/{slug}", *post_page_content(post, "en"))
+
+
+@app.get("/pages/en/about")
+def about_en(req):
+    html = load_page("pages/en/about.md")
+    return page_shell(
+        "About",
+        "en",
+        "/pages/en/about",
         Div(NotStr(html), cls="about-body"),
     )
 

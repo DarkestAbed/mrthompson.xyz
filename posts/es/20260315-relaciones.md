@@ -43,7 +43,7 @@ Me permito usar la ironía de Hombre™ porque aquí, desde mi visión, hay clar
 
 Hay muchas, muchas, _MUCHAS_ más ramificaciones y consecuencias de aceptar este molde binario, al que le llamamos Patriarcado. Muchas más consecuencias y muchos más supuestos iniciales, que pueden, si quieren emputarse con el mundo, googlear y leer. Hell, [parto yo buscando algo de info](https://lmgtfy.com/?q=patriarcado).
 
-Creer y poner tu fe en el patriarcado, en la heteronorma, en la amatonorma, es algo que usualmente hacemos de forma inconciente. Somos criados, socializados, formados con estos moldes culturales, y escapar de ellos es difícil y complejo. Y se puede, pero ¿quieres?
+Creer y poner tu fe en el patriarcado, en la heteronorma, en la amatonorma, es algo que usualmente hacemos de forma inconsciente. Somos criados, socializados, formados con estos moldes culturales, y escapar de ellos es difícil y complejo. Y se puede, pero ¿quieres?
 
 Por supuesto, la respuesta sociocultural es que _no debemos_, porque si la estructura de poder no se sostiene en la base, el molde se rasga y la masilla se escapa por las grietas.
 
@@ -62,6 +62,10 @@ Mis elucubraciones van hacia ese punto, cuando pienso en relaciones modernas (a 
 ## No me gusta esta conclusión, pero es a la que llego
 
 Lo digo así ("elige o no") porque, finalmente, la posición de una persona respecto de las relaciones románticas puede tener mucho de conciencia y de dirección, y puede tener mucho de inacción y de costumbre. Si aprendiste algo y nunca te lo cuestionaste, más allá de que te haga sentido, es lo que vas a buscar y lo que vas a reproducir.
+
+No es sólo una cuestión de Voluntad y Poder: también es un asunto de Cuestionar. Y en ese cuestionamiento es que me he encontrado pensando, revisando, dudando de la forma en la que pareciera nos queremos relacionar. Porque si el objetivo es la conexión real, pero sin trabajo (sin propia conducta) y, por tanto, sin Voluntad, me parece que habla mucho de la expectativa que pesa no sólo sobre una alteridad, sino sobre la propia cohesión social. Si no estoy dispuesto/a/e a poner mi conducta sobre juicio y expresar mi individualidad a través de la vulnerabilidad, no veo posible el generar conexión, porque no permito a la otra persona permear en mi interior, ni yo en el de ella. La propia vulneración para la construcción requiere de Agencia, de Poder y de Voluntad - y, por tanto, puedo realmente vulnerarme si no tengo las herramientas emocionales para exponer mi intimidad? Pregunta Para Otro Momento; y la construcción requiere de Voluntad y de Poder. Si no pongo al servicio de la relación, cualquiera esta sea, mi ser, no veo que sea posible una conexión real con dirección, porque no existe desde el uno la posibilidad de direccionar la propia conduta hacia alguna meta o posición futura. Porque el futuro se interpreta como un presente, y, sin ánimos de reescribir Interstellar, el tiempo requiere de cierta linealidad para poder sembrar, crecer y cosechar.
+
+Pero, por otro lado, también está la cuestión ideológica y partidista, incluso: si no estoy dispuesto/a/e a vulnerarme, puedo ser yo quien se involucre en una relación? Yo, en oposición a una máscara, a un avatar de mi, que muestre lo que quiero que se vea y oculte lo que quiero que no se vea. La posición de las conexiones reales, reconocibles, inmediatas incluso, me parece que es convenientemente conservadora, porque sólo permite y sólo incentiva la existencia de lo culturalmente apropiado. Y así, también me parece que desaparece la Voluntad, porque ya no tengo Poder sobre mí mismo para mover mi Agencia - sólo existe en mi poder y control lo que es aceptable, y las sombras deben desaparecer. Así nadie puede ser como realmente es.
 
 
 
